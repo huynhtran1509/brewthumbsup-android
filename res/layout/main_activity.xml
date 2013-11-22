@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    style="@style/Fill"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ProgressBar
+        style="@style/Widget.Sherlock.Light.ProgressBar"
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <ListView
+        style="@style/Fill"
+        android:id="@+id/list_view"
+        android:cacheColorHint="#00000000"
+        android:visibility="gone" />
+</RelativeLayout>

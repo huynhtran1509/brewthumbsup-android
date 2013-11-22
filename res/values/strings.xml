@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Brew Thumbs Up</string>
+
+    <string name="default_font" translateable="false">Roboto.ttf</string>
+    <string name="default_font_bold" translateable="false">Roboto-Bold.ttf</string>
+    <string name="default_font_light" translateable="false">Roboto-Light.ttf</string>
+    <string name="default_font_thin" translateable="false">Roboto-Thin.ttf</string>
+
+    <string name="io_exception">An I/O exception occurred. Please try again.</string>
+</resources>
