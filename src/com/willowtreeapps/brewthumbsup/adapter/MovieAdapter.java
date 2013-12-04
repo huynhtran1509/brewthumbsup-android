@@ -2,12 +2,14 @@ package com.willowtreeapps.brewthumbsup.adapter;
 
 import com.willowtreeapps.brewthumbsup.R;
 import com.willowtreeapps.brewthumbsup.api.model.Movie;
+import com.willowtreeapps.brewthumbsup.util.Brewtils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,11 +32,11 @@ public class MovieAdapter extends BaseAdapter {
     private class ViewHolder {
 
         public TextView title;
-        public TextView ratingRunningTime;
-        public TextView synopsis;
+        public TextView yearRunningTime;
         public TextView criticScore;
         public TextView audienceScore;
         public TextView criticsConsensus;
+        public ImageView rating;
     }
 
     public void setData(ArrayList<Movie> movies) {
@@ -63,11 +65,11 @@ public class MovieAdapter extends BaseAdapter {
             view = mInflater.inflate(R.layout.movie_list_item, parent, false);
             holder = new ViewHolder();
             holder.title = (TextView) view.findViewById(R.id.title);
-            holder.ratingRunningTime = (TextView) view.findViewById(R.id.rating_running_time);
-            holder.synopsis = (TextView) view.findViewById(R.id.synopsis);
+            holder.yearRunningTime = (TextView) view.findViewById(R.id.year_running_time);
             holder.criticScore = (TextView) view.findViewById(R.id.critic_score);
             holder.audienceScore = (TextView) view.findViewById(R.id.audience_score);
             holder.criticsConsensus = (TextView) view.findViewById(R.id.critics_consensus);
+            holder.rating = (ImageView) view.findViewById(R.id.rating);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -75,11 +77,12 @@ public class MovieAdapter extends BaseAdapter {
 
         Movie m = getItem(position);
         holder.title.setText(m.title);
-        holder.ratingRunningTime.setText("Rated: " + m.mpaaRating + ", Running Time: " + m.runtime + " min");
-        holder.synopsis.setText(m.synopsis);
-        holder.criticScore.setText("Critics Score: " + m.ratings.criticsScore);
-        holder.audienceScore.setText("Audience Score: " + m.ratings.audienceScore);
-        holder.criticsConsensus.setText("Critics Consensus: " + m.criticsConsensus);
+        holder.yearRunningTime.setText("(" + m.year + ") Running Time: " + m.runtime + " min");
+        holder.criticScore.setText(Integer.toString(m.ratings.criticsScore));
+        holder.audienceScore.setText(Integer.toString(m.ratings.audienceScore));
+        holder.criticsConsensus.setText(m.criticsConsensus);
+        holder.rating.setImageResource(Brewtils.MPAA_RATING_MAP.get(m.mpaaRating));
+
         return view;
     }
 }

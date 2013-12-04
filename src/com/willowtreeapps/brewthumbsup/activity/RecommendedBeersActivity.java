@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 import com.actionbarsherlock.view.MenuItem;
 import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockFragmentActivity;
+import com.viewpagerindicator.CirclePageIndicator;
 import com.willowtreeapps.brewthumbsup.R;
 import com.willowtreeapps.brewthumbsup.adapter.BeerAdapter;
 import com.willowtreeapps.brewthumbsup.api.model.Movie;
@@ -11,7 +12,7 @@ import com.willowtreeapps.brewthumbsup.api.model.Movie;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.support.v4.view.ViewPager;
 
 import roboguice.inject.InjectView;
 
@@ -19,12 +20,13 @@ public class RecommendedBeersActivity extends RoboSherlockFragmentActivity {
 
     private static final String MOVIE_JSON_KEY = "RecommendedBeersActivity_MovieJsonKey";
 
-    @InjectView(R.id.list_view) private ListView listView;
+    @InjectView(R.id.pager) private ViewPager pager;
+    @InjectView(R.id.indicator) private CirclePageIndicator indicator;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recommended_beers_activity);
+        setContentView(R.layout.activity_recommended_beers);
 
         Intent myIntent = getIntent();
         Movie movie = new Gson().fromJson(myIntent.getStringExtra(MOVIE_JSON_KEY), Movie.class);
@@ -32,7 +34,8 @@ public class RecommendedBeersActivity extends RoboSherlockFragmentActivity {
         getSupportActionBar().setTitle("Recommended Beers for " + movie.title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        listView.setAdapter(new BeerAdapter(this, movie.recommendedBeers));
+        pager.setAdapter(new BeerAdapter(getSupportFragmentManager(), movie.recommendedBeers));
+        indicator.setViewPager(pager);
     }
 
     public static Intent getIntent(Context context, Gson gson, Movie movie) {
@@ -51,4 +54,3 @@ public class RecommendedBeersActivity extends RoboSherlockFragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-

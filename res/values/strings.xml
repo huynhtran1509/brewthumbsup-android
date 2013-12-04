@@ -2,10 +2,25 @@
 <resources>
     <string name="app_name">Brew Thumbs Up</string>
 
+    <string name="content_description">cd</string>
+
     <string name="default_font" translateable="false">Roboto.ttf</string>
     <string name="default_font_bold" translateable="false">Roboto-Bold.ttf</string>
     <string name="default_font_light" translateable="false">Roboto-Light.ttf</string>
     <string name="default_font_thin" translateable="false">Roboto-Thin.ttf</string>
 
     <string name="io_exception">An I/O exception occurred. Please try again.</string>
+
+    <string name="popcorn_attribution">
+        <a href="http://thenounproject.com/noun/popcorn/#icon-No4778" target="_blank">Popcorn</a>
+        designed by
+        <a href="http://thenounproject.com/tazu" target="_blank">andrei antonescu</a>
+        from The Noun Project
+    </string>
+    <string name="tomato_attribution">
+        <a href="http://thenounproject.com/noun/tomato/#icon-No25334" target="_blank">Tomato</a>
+        designed by
+        <a href="http://thenounproject.com/sspecter777" target="_blank">Pablo Tournelle</a>
+        from The Noun Project
+    </string>
 </resources>

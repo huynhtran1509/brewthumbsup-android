@@ -30,7 +30,7 @@ public class MainActivity extends RoboSherlockFragmentActivity implements ApiFra
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.activity_main);
 
         FragmentManager fm = getSupportFragmentManager();
         mApiFragment = (ApiFragment) fm.findFragmentByTag("api");

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BrewThumbsUpTheme" parent="@style/Theme.Sherlock.Light.DarkActionBar">
+        <item name="vpiCirclePageIndicatorStyle">@style/CirclePageIndicator</item>
+    </style>
+</resources>
