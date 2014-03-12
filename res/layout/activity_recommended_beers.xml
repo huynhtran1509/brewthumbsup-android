@@ -5,7 +5,8 @@
 
     <oak.widget.BeastViewPager
         style="@style/Match"
-        android:id="@+id/pager" />
+        android:id="@+id/pager"
+        android:orientation="vertical" />
 
     <com.viewpagerindicator.CirclePageIndicator
         style="@style/Wrap"

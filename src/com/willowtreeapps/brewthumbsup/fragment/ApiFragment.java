@@ -71,15 +71,23 @@ public class ApiFragment extends RoboSherlockFragment {
                 mMovies = newReleasesResponse.movies;
                 ArrayList<Beer> beers = beersResponse.beers;
 
-                // Sort beers and split into five "equal"-length arrays
+                // Sort beers and split into "equal"-length arrays
                 List<List<Beer>> beerPartitions = new ArrayList<List<Beer>>();
                 Collections.sort(beers);
                 Collections.reverse(beers);
-                int partitionSize = beers.size() / 9;
+                int partitionSize = beers.size() / 10;
+                int remainder = beers.size() % 10;
+                if (remainder > 0) {
+                    partitionSize++;
+                }
                 for (int i = 0; i < beers.size(); i += partitionSize) {
+                    remainder--;
+                    if (remainder == -1) {
+                        partitionSize--;
+                    }
                     int end = Math.min(i + partitionSize, beers.size());
                     List<Beer> sublist = beers.subList(i, end);
-                    beerPartitions.add(sublist);
+                    beerPartitions.add(new ArrayList<Beer>(sublist));
                 }
 
                 for (Movie m : mMovies) {

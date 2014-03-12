@@ -31,7 +31,7 @@ public class RecommendedBeersActivity extends RoboSherlockFragmentActivity {
         Intent myIntent = getIntent();
         Movie movie = new Gson().fromJson(myIntent.getStringExtra(MOVIE_JSON_KEY), Movie.class);
 
-        getSupportActionBar().setTitle("Recommended Beers for " + movie.title);
+        getSupportActionBar().setTitle(movie.title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         pager.setAdapter(new BeerAdapter(getSupportFragmentManager(), movie.recommendedBeers));
