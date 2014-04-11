@@ -3,11 +3,10 @@ package com.willowtreeapps.brewthumbsup.fragment;
 import com.google.gson.Gson;
 
 import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockFragment;
+import com.squareup.picasso.Picasso;
 import com.willowtreeapps.brewthumbsup.R;
 import com.willowtreeapps.brewthumbsup.api.model.Beer;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -26,10 +25,10 @@ public class BeerFragment extends RoboSherlockFragment {
     private static final String BEER_JSON_KEY = "BeerFragment_BeerJsonKey";
 
     @InjectView(R.id.abv) TextView abv;
-    @InjectView(R.id.brewery) TextView brewery;
     @InjectView(R.id.name) TextView name;
+    @InjectView(R.id.style_name) TextView styleName;
     @InjectView(R.id.description) TextView description;
-    @InjectView(R.id.url) ImageView url;
+    @InjectView(R.id.label) ImageView label;
 
     private Beer mBeer;
     private Gson mGson = new Gson();
@@ -52,19 +51,18 @@ public class BeerFragment extends RoboSherlockFragment {
         super.onViewCreated(view, savedInstanceState);
 
         abv.setText(mBeer.abv + "%");
-        brewery.setText(mBeer.brewery.name);
         name.setText(mBeer.name);
+        if (mBeer.style == null || TextUtils.isEmpty(mBeer.style.name)) {
+            styleName.setText("Unspecified Style");
+        } else {
+            styleName.setText(mBeer.style.name);
+        }
         description.setText(mBeer.description);
-        if (!TextUtils.isEmpty(mBeer.brewery.url)) {
-            url.setVisibility(View.VISIBLE);
-            url.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(mBeer.brewery.url));
-                    startActivity(intent);
-                }
-            });
+
+        if (mBeer.labels == null || TextUtils.isEmpty(mBeer.labels.large)) {
+            label.setImageResource(R.drawable.img_popcorn);
+        } else {
+            Picasso.with(getActivity()).load(mBeer.labels.large).into(label);
         }
     }
 

@@ -50,7 +50,7 @@ public class ApiTest {
     @Test
     public void getBeers() {
         try {
-            BeersResponse response = openBeerDatabaseApi.getBeers();
+            BeersResponse response = openBeerDatabaseApi.getBeers(7);
             Assert.assertNotNull(response.beers);
         } catch (IOException e) {
             e.printStackTrace();

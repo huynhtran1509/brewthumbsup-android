@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <oak.widget.TextViewWithFont
-        android:id="@+id/brewery"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -18,7 +18,7 @@
         android:paddingLeft="10dp"
         android:paddingBottom="10dp"
         android:gravity="center_horizontal"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textColor="@color/white"
         android:background="@drawable/brewery_background"
         oak:font="@string/default_font_light" />
@@ -26,10 +26,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/brewery"
+        android:layout_alignTop="@id/name"
         android:layout_alignLeft="@id/bottle"
         android:layout_alignRight="@id/bottle"
-        android:layout_alignBottom="@id/brewery">
+        android:layout_alignBottom="@id/name">
 
         <View
             android:layout_width="0dp"
@@ -44,7 +44,7 @@
     </LinearLayout>
 
     <oak.widget.TextViewWithFont
-        android:id="@+id/name"
+        android:id="@+id/style_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -64,10 +64,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/name"
+        android:layout_alignTop="@id/style_name"
         android:layout_alignLeft="@id/bottle"
         android:layout_alignRight="@id/bottle"
-        android:layout_alignBottom="@id/name">
+        android:layout_alignBottom="@id/style_name">
 
         <View
             android:layout_width="0dp"
@@ -92,19 +92,6 @@
         android:scaleType="centerInside"
         android:contentDescription="@string/content_description" />
 
-    <ImageView
-        style="@style/Wrap"
-        android:id="@+id/url"
-        android:visibility="gone"
-        android:layout_alignTop="@id/brewery"
-        android:layout_alignBottom="@id/brewery"
-        android:layout_alignLeft="@id/bottle"
-        android:layout_alignRight="@id/bottle"
-        android:scaleType="center"
-        android:clickable="true"
-        android:src="@drawable/ic_action_location_web_site_selector"
-        android:contentDescription="@string/content_description" />
-
     <oak.widget.TextViewWithFont
         android:id="@+id/abv"
         android:layout_width="wrap_content"
@@ -114,18 +101,31 @@
         android:layout_alignRight="@id/bottle"
         android:layout_alignBottom="@id/bottle"
         android:layout_centerHorizontal="true"
-        android:paddingTop="100dp"
-        android:gravity="center_vertical|center_horizontal"
+        android:paddingTop="80dp"
+        android:gravity="top|center_horizontal"
         android:textColor="@color/white"
-        android:textSize="36sp"
+        android:textSize="24sp"
         oak:font="@string/default_font_light" />
+
+    <ImageView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="170dp"
+        android:layout_alignLeft="@id/bottle"
+        android:layout_alignRight="@id/bottle"
+        android:layout_alignBottom="@id/bottle"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="false"
+        android:layout_marginBottom="60dp" />
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@id/bottle"
-        android:layout_below="@id/name"
+        android:layout_below="@id/style_name"
         android:layout_marginLeft="15dp"
         android:scrollbars="none">
 

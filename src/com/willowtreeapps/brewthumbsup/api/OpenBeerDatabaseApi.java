@@ -22,7 +22,8 @@ public class OpenBeerDatabaseApi {
     private OkHttpClient mOkHttpClient;
     private Gson mGson;
 
-    public static final String BEERS_URL = "http://54.225.208.28/v1/beers.json?per_page=100";
+    public static final String BEERS_URL
+            = "http://api.brewerydb.com/v2/beers?key=bdbda40fbf06370f71d8468be3f5a39b&abv=%s";
 
     @Inject
     public OpenBeerDatabaseApi() {
@@ -41,10 +42,8 @@ public class OpenBeerDatabaseApi {
         return response;
     }
 
-    public BeersResponse getBeers() throws IOException {
-        // This is bizarre and I don't know why this happens for this API
-        HttpURLConnection connection = mOkHttpClient.open(new URL(BEERS_URL));
-        connection.setRequestProperty("host", "api.openbeerdatabase.com");
+    public BeersResponse getBeers(int abv) throws IOException {
+        HttpURLConnection connection = mOkHttpClient.open(new URL(String.format(BEERS_URL, Integer.toString(abv))));
         BeersResponse response = readJsonToObject(connection, BeersResponse.class);
         return response;
     }

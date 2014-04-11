@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public class BeersResponse extends BaseResponse {
 
-    @SerializedName("page") public int page;
-    @SerializedName("pages") public int pages;
-    @SerializedName("total") public int total;
-    @SerializedName("beers") public ArrayList<Beer> beers;
+    @SerializedName("currentPage") public int currentPage;
+    @SerializedName("numberOfPages") public int numberOfPages;
+    @SerializedName("totalResults") public int totalResults;
+    @SerializedName("data") public ArrayList<Beer> beers;
 }
