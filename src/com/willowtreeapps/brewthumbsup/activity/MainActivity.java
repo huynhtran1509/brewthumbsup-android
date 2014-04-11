@@ -2,10 +2,14 @@ package com.willowtreeapps.brewthumbsup.activity;
 
 import com.google.gson.Gson;
 
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockFragmentActivity;
 import com.willowtreeapps.brewthumbsup.R;
 import com.willowtreeapps.brewthumbsup.adapter.MovieAdapter;
 import com.willowtreeapps.brewthumbsup.api.model.Movie;
+import com.willowtreeapps.brewthumbsup.fragment.AboutFragment;
 import com.willowtreeapps.brewthumbsup.fragment.ApiFragment;
 
 import android.os.Bundle;
@@ -62,6 +66,24 @@ public class MainActivity extends RoboSherlockFragmentActivity implements ApiFra
 
         progress.setVisibility(View.GONE);
         listView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getSupportMenuInflater();
+        inflater.inflate(R.menu.activity_main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about:
+                AboutFragment af = new AboutFragment();
+                af.show(getSupportFragmentManager(), "about");
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

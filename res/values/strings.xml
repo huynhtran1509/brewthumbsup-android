@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Brew Thumbs Up</string>
+    <string name="app_name">Brew Thumbs Up!</string>
 
     <string name="content_description">cd</string>
 
@@ -10,6 +10,13 @@
     <string name="default_font_thin" translateable="false">Roboto-Thin.ttf</string>
 
     <string name="io_exception">An I/O exception occurred. Please try again.</string>
+
+    <string name="about_text">Brew Thumbs Up! pairs newly released movies with beer in a very scientific manner. Beers
+        are assigned based on the movie rating, so for lower movies you will get stronger beers. This should hopefully
+        make it a bit easier to get through those rotten movies.
+    </string>
+    <string name="built_by_willowtree_apps">Built by WillowTree Apps</string>
+    <string name="about_brew_thumbs_up">About Brew Thumbs Up!</string>
 
     <string name="popcorn_attribution">
         <a href="http://thenounproject.com/noun/popcorn/#icon-No4778" target="_blank">Popcorn</a>
